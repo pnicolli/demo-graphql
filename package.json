@@ -1,0 +1,40 @@
+{
+  "name": "demo-graphql",
+  "version": "1.0.0",
+  "description": "Graphql server demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pnicolli/demo-graphql.git"
+  },
+  "keywords": [
+    "graphql",
+    "server",
+    "demo",
+    "node"
+  ],
+  "author": "Piero Nicolli",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pnicolli/demo-graphql/issues"
+  },
+  "homepage": "https://github.com/pnicolli/demo-graphql#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "express-graphql": "^0.6.12",
+    "graphql": "^0.13.2"
+  },
+  "devDependencies": {
+    "@redturtle/eslint-config": "^1.2.0",
+    "babel-eslint": "^8.2.3",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-flowtype": "^2.46.3",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "prettier": "^1.12.1"
+  }
+}
