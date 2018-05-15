@@ -5,6 +5,8 @@ const {
   GraphQLString,
   GraphQLInt
 } = require('graphql');
+const express = require('express');
+const graphqlHTTP = require('express-graphql');
 
 const userType = new GraphQLObjectType({
   name: 'User',
@@ -37,16 +39,14 @@ const schema = new GraphQLSchema({
   })
 });
 
-graphql(
-  schema,
-  `
-    {
-      me {
-        id
-        name
-      }
-    }
-  `
-).then(response => {
-  console.log(response);
-});
+const app = express();
+
+app.use(
+  '/graphql',
+  graphqlHTTP({
+    schema,
+    graphiql: true
+  })
+);
+
+app.listen(4000);
