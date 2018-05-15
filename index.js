@@ -2,16 +2,36 @@ const {
   graphql,
   GraphQLSchema,
   GraphQLObjectType,
-  GraphQLString
+  GraphQLString,
+  GraphQLInt
 } = require('graphql');
+
+const userType = new GraphQLObjectType({
+  name: 'User',
+  fields: {
+    id: {
+      type: GraphQLInt,
+      resolve: user => user.id
+    },
+    name: {
+      type: GraphQLString,
+      resolve: user => user.name
+    }
+  }
+});
+
+const me = {
+  id: 1,
+  name: 'Piero'
+};
 
 const schema = new GraphQLSchema({
   query: new GraphQLObjectType({
     name: 'RootQueryType',
     fields: {
-      hello: {
-        type: GraphQLString,
-        resolve: () => 'Hello, Ferrara!'
+      me: {
+        type: userType,
+        resolve: () => me
       }
     }
   })
@@ -21,7 +41,10 @@ graphql(
   schema,
   `
     {
-      hello
+      me {
+        id
+        name
+      }
     }
   `
 ).then(response => {
