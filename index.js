@@ -1,14 +1,21 @@
-const { graphql, buildSchema } = require('graphql');
+const {
+  graphql,
+  GraphQLSchema,
+  GraphQLObjectType,
+  GraphQLString
+} = require('graphql');
 
-const schema = buildSchema(`
-  type Query {
-    hello: String
-  }
-`);
-
-const root = {
-  hello: () => 'Hello, Ferrara!'
-};
+const schema = new GraphQLSchema({
+  query: new GraphQLObjectType({
+    name: 'RootQueryType',
+    fields: {
+      hello: {
+        type: GraphQLString,
+        resolve: () => 'Hello, Ferrara!'
+      }
+    }
+  })
+});
 
 graphql(
   schema,
@@ -16,8 +23,7 @@ graphql(
     {
       hello
     }
-  `,
-  root
+  `
 ).then(response => {
   console.log(response);
 });
