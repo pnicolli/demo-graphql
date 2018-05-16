@@ -1,5 +1,4 @@
 const {
-  graphql,
   GraphQLSchema,
   GraphQLObjectType,
   GraphQLString,
@@ -9,7 +8,6 @@ const {
 } = require('graphql');
 const express = require('express');
 const graphqlHTTP = require('express-graphql');
-const mysql = require('mysql');
 const dbConnection = require('./mysql');
 
 dbConnection.connect();
