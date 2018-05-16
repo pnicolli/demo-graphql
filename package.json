@@ -23,9 +23,11 @@
   },
   "homepage": "https://github.com/pnicolli/demo-graphql#readme",
   "dependencies": {
+    "bluebird": "^3.5.1",
     "express": "^4.16.3",
     "express-graphql": "^0.6.12",
-    "graphql": "^0.13.2"
+    "graphql": "^0.13.2",
+    "mysql": "^2.15.0"
   },
   "devDependencies": {
     "@redturtle/eslint-config": "^1.2.0",
